@@ -2,7 +2,7 @@
 
 A Magento module to use Elasticsearch as Flat Table Replacement for catalog and search.
 
-Please consider this a working beta version.Currently supports indexing and searching of simple products.
+Please consider this a working beta version. Currently supports indexing and searching of simple products.
 
 ## Installation
 
