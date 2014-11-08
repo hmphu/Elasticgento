@@ -9,6 +9,7 @@
     ],
     "require": {
         "firegento/psr0autoloader" : "*",
-        "magento-hackathon/magento-composer-installer": "*"
+        "magento-hackathon/magento-composer-installer": "*",
+        "ruflin/elastica" : " *"
     }
 }
