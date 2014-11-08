@@ -60,4 +60,47 @@ class Hackathon_ElasticgentoCatalogSearch_Helper_Data extends Mage_Core_Helper_A
         return Mage::getResourceSingleton('elasticgento/client');
     }
 
+    /**
+     * @return Mage_Catalog_Model_Resource_Eav_Attribute[]
+     */
+    public function getSearchableProductAttributes()
+    {
+        $productAttributes = Mage::getResourceModel('catalog/product_attribute_collection');
+        $result = array();
+        foreach ($productAttributes as $productAttribute) {
+            /** @var $productAttr Mage_Catalog_Model_Resource_Eav_Attribute **/
+            if($productAttribute->getIsSearchable()){
+                $result[] = $productAttribute;
+            }
+        }
+        //var_dump($result);
+        return $result;
+    }
+
+    /**
+     * 
+     * returns field names to use for a search query
+     * 
+     * @return string[]
+     */
+    public function getSearchableElasticSearchFieldNames()
+    {
+        $result = array();
+        $result[] = 'name';
+        $result[] = 'sku';
+        $searchableAttributes = $this->getSearchableProductAttributes();
+        
+        foreach($searchableAttributes as $attribute){
+            if($attribute->getBackendType() == 'text'){
+                $result[] = $attribute->getAttributeCode();
+            }elseif($attribute->getFrontendInput() == 'select'){
+                $result[] = $attribute->getAttributeCode().'_value';
+            }else{
+                //var_dump($attribute->getData());
+            }
+        }
+        
+        return $result;
+    }
+
 }

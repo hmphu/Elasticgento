@@ -56,12 +56,6 @@
             <elasticgento>
                 <class>Hackathon_ElasticgentoCore_Block</class>
             </elasticgento>
-            <catalog>
-                <!-- Rewrite Catalog_Layer_View -->
-                <rewrite>
-                    <layer_view>Hackathon_ElasticgentoCore_Block_Catalog_Layer_View</layer_view>
-                </rewrite>
-            </catalog>
         </blocks>
         <models>
             <elasticgento>

@@ -49,6 +49,7 @@ try {
     );
 } catch (Exception $e) {
     // ignore
+    Mage::logException($e);
 }
 
 $installer->endSetup();

@@ -65,8 +65,9 @@ class Hackathon_ElasticgentoCatalogSearch_Model_Indexer_Fulltext extends Mage_Ca
      */
     public function reindexAll()
     {
-        if (!Mage::helper('elasticgento_catalogsearch')->isSearchActive()) {
-            return parent::reindexAll();
-        }
+        return parent::reindexAll();
+//        if (!Mage::helper('elasticgento_catalogsearch')->isSearchActive()) {
+//            return parent::reindexAll();
+//        }
     }
 }

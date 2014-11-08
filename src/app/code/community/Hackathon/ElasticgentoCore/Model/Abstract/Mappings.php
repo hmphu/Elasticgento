@@ -262,7 +262,7 @@ abstract class Hackathon_ElasticgentoCore_Model_Abstract_Mappings
      */
     public function getMappings()
     {
-        if (null === $this->_MappingsCache) {
+        if (null === $this->_mappings) {
             $this->_createMappings();
         }
 
