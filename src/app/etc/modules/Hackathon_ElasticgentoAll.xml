@@ -58,6 +58,7 @@
             <active>true</active>
             <codePool>community</codePool>
             <depends>
+                <Mage_CatalogSearch />
                 <Hackathon_ElasticgentoCore/>
                 <Hackathon_ElasticgentoCatalog/>
             </depends>

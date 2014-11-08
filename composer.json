@@ -4,6 +4,22 @@
     "type": "magento-module",
     "authors": [
         {
+            "name": "Daniel Niedergesäß",
+            "email": "daniel.niedergesaess@gmail.com"
+        },
+        {
+            "name" : "Andreas Emer",
+            "email" : "emer@mothership.de"
+        },
+        {
+            "name": "Michael Ryvlin",
+            "email" : "ryvlin@gmail.com"
+        },
+        {
+            "name": "Johann Niklas"
+            "email": "johann@n1klas.de"
+        },
+        {
             "name": "Tim Vroom",
             "email": "tim@nichecommerce.nl"
         }

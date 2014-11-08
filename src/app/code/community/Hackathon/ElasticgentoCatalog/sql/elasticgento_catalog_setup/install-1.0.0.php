@@ -43,6 +43,13 @@ try {
         $installer->getTable('catalog/eav_attribute'),
         'search_weight', "tinyint(1) unsigned NOT NULL DEFAULT '1' after `is_searchable`"
     );
+} catch (Exception $e) {
+    // ignore
+    Mage::logException($e);
+}
+
+// seperate initiate since some modules already add search_weight
+try {
     $installer->getConnection()->addColumn(
         $installer->getTable('catalog/eav_attribute'),
         'search_analyzer', "varchar(255)NOT NULL DEFAULT '' after `search_weight`"
