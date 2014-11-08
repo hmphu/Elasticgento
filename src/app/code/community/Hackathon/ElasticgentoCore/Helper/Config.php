@@ -48,13 +48,26 @@ class Hackathon_ElasticgentoCore_Helper_Config extends Mage_Core_Helper_Abstract
     }
 
     /**
-     * get the ip or ips of the server nodes
+     * get the connection data of the server nodes
      *
      * @return array
      */
     public function getElasticsearchNodeConnectionData()
     {
-        return unserialize(Mage::getStoreConfig('elasticgento/general/nodes'));
+        $data = unserialize(Mage::getStoreConfig('elasticgento/general/nodes'));
+        foreach ($data as &$server) {
+            if (isset($server['auth_username']) && !empty($server['auth_username'])) {
+                $server['curl'][CURLOPT_USERPWD] = $server['auth_username'].':'.$server['auth_password'];
+            }
+            if (isset($server['auth_username']) ){
+                unset($server['auth_username'], $server['auth_password']);
+            }
+            if (isset($server['https'])) {
+                $server['transport'] = 'https';
+                unset($server['https']);
+            }
+        }
+        return $data;
     }
 
     /**

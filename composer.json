@@ -27,6 +27,6 @@
     "require": {
         "firegento/psr0autoloader": "*",
         "magento-hackathon/magento-composer-installer": "*",
-        "ruflin/elastica": "*"
+        "ruflin/elastica": "~1.3.0"
     }
 }

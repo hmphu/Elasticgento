@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Magento
  *
@@ -33,14 +34,15 @@
  * class to display info about version in admin
  *
  */
-
 class Hackathon_ElasticgentoCore_Block_Adminhtml_System_Config_Fieldset_Nodes
     extends Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
 {
     /**
      * overide method _prepareToRender in Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
      * this is needed to display custom dynamic fieldset
+     *
      * @param void
+     *
      * @return void
      */
     protected function _prepareToRender()
@@ -55,8 +57,19 @@ class Hackathon_ElasticgentoCore_Block_Adminhtml_System_Config_Fieldset_Nodes
             'label' => Mage::helper('elasticgento')->__('Port'),
             'style' => 'width:50px',
         ));
+        $this->addColumn('https', array(
+            'label' => Mage::helper('elasticgento')->__('Https?'),
+            'style' => 'width:20px',
+            'renderer' => new Hackathon_ElasticgentoCore_Block_Adminhtml_System_Config_Fieldset_Renderer_Checkbox
+        ));
+        $this->addColumn('auth_username', array(
+            'label' => Mage::helper('elasticgento')->__('Auth Username')
+        ));
+        $this->addColumn('auth_password', array(
+            'label' => Mage::helper('elasticgento')->__('Auth Password/Api key')
+        ));
         // Disables "Add after" button
-        $this->_addAfter = false;
+        $this->_addAfter       = false;
         $this->_addButtonLabel = Mage::helper('elasticgento')->__('Add Node');
     }
 
@@ -65,7 +78,9 @@ class Hackathon_ElasticgentoCore_Block_Adminhtml_System_Config_Fieldset_Nodes
      * this is needed to display custom dynamic fieldset and inject custom element
      *
      * @see Mage_Adminhtml_Block_System_Config_Form_Field_Array_Abstract
+     *
      * @param string $columnName
+     *
      * @return void
      */
     protected function _renderCellTemplate($columnName)
@@ -73,7 +88,6 @@ class Hackathon_ElasticgentoCore_Block_Adminhtml_System_Config_Fieldset_Nodes
         $inputName = $this->getElement()->getName() . '[#{_id}][' . $columnName . ']';
         switch ($columnName) {
             case 'type':
-            {
                 return $this->_getTypeRenderer()
                     ->setName($inputName)
                     ->setTitle($columnName)
@@ -82,11 +96,17 @@ class Hackathon_ElasticgentoCore_Block_Adminhtml_System_Config_Fieldset_Nodes
                         $this->getElement()->getValues())
                     ->toHtml();
                 break;
-            }
             default:
-                {
                 return parent::_renderCellTemplate($columnName);
-                }
+                break;
+        }
+    }
+
+    protected function _prepareArrayRow(Varien_Object $row) {
+        if ($row->getHttps()) {
+            $row->setHttps(' checked="checked"');
+        } else {
+            $row->unsHttps();
         }
     }
 }
