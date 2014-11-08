@@ -1,5 +1,5 @@
 {
-    "name": "magento-hackaton/elasticgento",
+    "name": "magento-hackathon/elasticgento",
     "description": "A Magento module to use Elasticsearch as Flat Table Replacement for catalog and search.",
     "authors": [
         {
