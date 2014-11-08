@@ -2,7 +2,7 @@
 
 A Magento module to use Elasticsearch as Flat Table Replacement for catalog and search.
 
-Please consider this a working beta version. Currently supports indexing and searching of simple products.
+Please consider this a minimal working beta version. Currently supports indexing and searching of simple products.
 
 ## Installation
 
@@ -16,3 +16,4 @@ modman clone git@github.com:dng-dev/Elasticgento.git
 ```
 Requires Hackathon_PSR0Autoloader
 ```
+[![Analytics](https://ga-beacon.appspot.com/UA-50601392-1/dng-dev/Elasticgento)](https://github.com/dng-dev/Elasticgento)

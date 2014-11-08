@@ -1,0 +1,32 @@
+{
+    "name": "magento-hackathon/elasticgento",
+    "description": "A Magento module to use Elasticsearch as Flat Table Replacement for catalog and search.",
+    "type": "magento-module",
+    "authors": [
+        {
+            "name": "Daniel Niedergesäß",
+            "email": "daniel.niedergesaess@gmail.com"
+        },
+        {
+            "name" : "Andreas Emer",
+            "email" : "emer@mothership.de"
+        },
+        {
+            "name": "Michael Ryvlin",
+            "email" : "ryvlin@gmail.com"
+        },
+        {
+            "name": "Johann Niklas",
+            "email": "johann@n1klas.de"
+        },
+        {
+            "name": "Tim Vroom",
+            "email": "tim@nichecommerce.nl"
+        }
+    ],
+    "require": {
+        "firegento/psr0autoloader": "*",
+        "magento-hackathon/magento-composer-installer": "*",
+        "ruflin/elastica": "*"
+    }
+}

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+/**
+ * Magento
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ * If you did not receive a copy of the license and are unable to
+ * obtain it through the world-wide-web, please send an email
+ * to license@magentocommerce.com so we can send you a copy immediately.
+ *
+ * DISCLAIMER
+ *
+ * Do not edit or add to this file if you wish to upgrade Magento to newer
+ * versions in the future. If you wish to customize Magento for your
+ * needs please refer to http://www.magentocommerce.com for more information.
+ *
+ * PHP Version 5.3
+ *
+ * @category  Hackathon
+ * @package   Hackathon_ElasticgentoCore
+ * @author    Daniel Niedergesäß <daniel.niedergesaess ÄT gmail.com>
+ * @author    Andreas Emer <emer ÄT mothership.de>
+ * @author    Michael Ryvlin <ryvlin ÄT gmail.com>
+ * @author    Johann Niklas <johann ÄT n1klas.de>
+ * @copyright Copyright (c) 2014 Hackathon
+ * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+ * @link      http://mage-hackathon.de/
+ *
+ * elasticgento module config file
+ *
+*/
+-->
+<config>
+    <modules>
+        <Hackathon_ElasticgentoCore>
+            <version>1.0.0</version>
+        </Hackathon_ElasticgentoCore>
+    </modules>
+    <global>
+        <!-- This is to initialize the new namespace,
+        we need Hackathon_PSR0Autoloader for this -->
+        <psr0_namespaces>
+            <Elastica />
+        </psr0_namespaces>
+        <helpers>
+            <elasticgento>
+                <class>Hackathon_ElasticgentoCore_Helper</class>
+            </elasticgento>
+        </helpers>
+        <blocks>
+            <elasticgento>
+                <class>Hackathon_ElasticgentoCore_Block</class>
+            </elasticgento>
+        </blocks>
+        <models>
+            <elasticgento>
+                <class>Hackathon_ElasticgentoCore_Model</class>
+                <resourceModel>elasticgento_resource</resourceModel>
+            </elasticgento>
+            <elasticgento_resource>
+                <class>Hackathon_ElasticgentoCore_Model_Resource</class>
+            </elasticgento_resource>
+        </models>
+        <resources>
+            <elasticgento_setup>
+                <setup>
+                    <module>Hackathon_ElasticgentoCore</module>
+                    <class>Mage_Catalog_Model_Resource_Setup</class>
+                </setup>
+            </elasticgento_setup>
+        </resources>
+        <cache>
+            <types>
+                <namespace_module module="elasticgento" translate="label description">
+                    <label>Elasticgento</label>
+                    <description>Elasticgento mappings and settings</description>
+                    <tags>ELASTICGENTO</tags>
+                </namespace_module>
+            </types>
+        </cache>
+    </global>
+    <adminhtml>
+        <events>
+            <adminhtml_catalog_product_attribute_edit_prepare_form>
+                <observers>
+                    <elasticgento>
+                        <class>elasticgento/adminhtml_observer</class>
+                        <method>catalog_product_attribute_edit_prepare_form</method>
+                    </elasticgento>
+                </observers>
+            </adminhtml_catalog_product_attribute_edit_prepare_form>
+            <catalog_entity_attribute_save_after>
+                <observers>
+                    <elasticgento>
+                        <class>elasticgento/adminhtml_observer</class>
+                        <method>entity_attribute_save_after</method>
+                    </elasticgento>
+                </observers>
+            </catalog_entity_attribute_save_after>
+        </events>
+    </adminhtml>
+
+    <default>
+        <elasticgento>
+            <general>
+                <timeout>30</timeout>
+                <number_of_shards>2</number_of_shards>
+                <number_of_replicas>1</number_of_replicas>
+                <chunksize>1000</chunksize>
+                <facets_max_size>50</facets_max_size>
+                <enable_icu_folding>0</enable_icu_folding>
+            </general>
+        </elasticgento>
+    </default>
+</config>
