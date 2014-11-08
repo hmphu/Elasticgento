@@ -1,6 +1,7 @@
 {
     "name": "magento-hackathon/elasticgento",
     "description": "A Magento module to use Elasticsearch as Flat Table Replacement for catalog and search.",
+    "type": "magento-module",
     "authors": [
         {
             "name": "Tim Vroom",
@@ -8,8 +9,8 @@
         }
     ],
     "require": {
-        "firegento/psr0autoloader" : "*",
+        "firegento/psr0autoloader": "*",
         "magento-hackathon/magento-composer-installer": "*",
-        "ruflin/elastica" : " *"
+        "ruflin/elastica": "*"
     }
 }
