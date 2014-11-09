@@ -2,4 +2,4 @@ src/app/etc/modules/Hackathon_ElasticgentoAll.xml               app/etc/modules/
 src/app/code/community/Hackathon/ElasticgentoCore/              app/code/community/Hackathon/ElasticgentoCore/
 src/app/code/community/Hackathon/ElasticgentoCatalogSearch/     app/code/community/Hackathon/ElasticgentoCatalogSearch/
 src/app/code/community/Hackathon/ElasticgentoCatalog/           app/code/community/Hackathon/ElasticgentoCatalog/
-lib/Elastica                                                    lib/Elastica
+lib/Elastica/lib/Elastica/                                      lib/Elastica/

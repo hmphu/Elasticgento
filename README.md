@@ -6,14 +6,18 @@ Please consider this a minimal working beta version. Currently supports indexing
 
 ## Installation
 
-Use [modman](https://github.com/colinmollenhour/modman) to install the module:
+Use [modman](https://github.com/colinmollenhour/modman) to install the extension:
 ```
-modman clone git@github.com:dng-dev/Elasticgento.git
+modman clone https://github.com/magento-hackathon/Elasticgento.git
+modman clone https://github.com/magento-hackathon/Magento-PSR-0-Autoloader.git
 ```
 
-## Release Notes
+Edit your app/etc/local.xml file to initialize the Elastica namespace, insert following code in the `<global/>`-node
 
 ```
-Requires Hackathon_PSR0Autoloader
+<psr0_namespaces>
+    <Elastica />
+</psr0_namespaces>
 ```
-[![Analytics](https://ga-beacon.appspot.com/UA-50601392-1/dng-dev/Elasticgento)](https://github.com/dng-dev/Elasticgento)
+
+Configure the elasticsearch server in the Magento Backend in `System` -> `Configuration` -> `Elasticgento`
