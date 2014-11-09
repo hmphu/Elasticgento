@@ -42,11 +42,6 @@
         </Hackathon_ElasticgentoCore>
     </modules>
     <global>
-        <!-- This is to initialize the new namespace,
-        we need Hackathon_PSR0Autoloader for this -->
-        <psr0_namespaces>
-            <Elastica />
-        </psr0_namespaces>
         <helpers>
             <elasticgento>
                 <class>Hackathon_ElasticgentoCore_Helper</class>
